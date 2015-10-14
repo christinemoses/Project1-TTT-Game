@@ -31,7 +31,7 @@ var switchPlayer = function() {
   } else {
     currentPlayer = "x";
   }
-}
+};
 
 // variable to store an event target
 
@@ -44,37 +44,14 @@ var turn = function(col, row){
     return ("Choose an empty cell");
   }
   return board;
-}
+};
 
 // turn(1,2);
 // turn(1,1);
 // turn(1,2);
 // turn(1,1);
 
-
-function getWinner() {
-    if (isWinner('x')) {
-      return 'Player X Wins!';
-    }
-    if (isWinner('o')) {
-    return 'Player O Wins!';
-    }
-    if (false) {
-      var checkboard = function(board) {
-        for(var i = 0; i < board.length; i++) {
-          if(board[i] != '');
-        }
-      }
-    return 'Tie Game!';
-    }
-}
-
-function isWinner(player) {
-    return winsRow(player) || winsColumn(player) || winsDiagonal(player);
-}
-
-
-function winsRow(player) {
+var winsRow = function winsRow(player) {
   var sameFirstRow = board[0][0] === player && board[1][0] === player && board[2][0] === player;
   var sameSecondRow = board[0][1] === player && board[1][1] === player && board[2][1] === player;
   var sameThirdRow = board[0][2] === player && board[1][2] === player && board[2][2] === player;
@@ -84,9 +61,13 @@ function winsRow(player) {
   } else {
     return false;
   }
-}
+};
 
-function winsColumn(player) {
+var isWinner = function isWinner(player) {
+    return winsRow(player) || winsColumn(player) || winsDiagonal(player);
+};
+
+var winsColumn = function winsColumn(player) {
   var sameFirstColumn = board[0][0] === player && board[0][1] === player && board[0][2] === player;
   var sameSecondColumn = board[1][0] === player && board[1][1] === player && board[1][2] === player;
   var sameThirdColumn = board[2][0] === player && board[2][1] === player && board[2][2] === player;
@@ -96,9 +77,9 @@ function winsColumn(player) {
   } else {
     return false;
   }
-}
+};
 
-function winsDiagonal(player) {
+var winsDiagonal = function winsDiagonal(player) {
   var sameFirstDiagonal = board[0][0] === player && board[1][1] === player && board[2][2] === player;
   var sameSecondDiagonal = board[0][2] === player && board[1][1] === player && board[2][0] === player;
 
@@ -107,6 +88,24 @@ function winsDiagonal(player) {
   } else {
     return false;
   }
-}
+};
 
-
+var getWinner = function getWinner() {
+    if (isWinner('x')) {
+      return 'Player X Wins!';
+    }
+    if (isWinner('o')) {
+    return 'Player O Wins!';
+    }
+    if (isTie()) {
+      return 'Tie Game!'
+    }
+    // if (false) {
+    //   var checkboard = function(board) {
+    //     for(var i = 0; i < board.length; i++) {
+    //       if(board[i] != '');
+    //     }
+    //   }
+    // return 'Tie Game!';
+    // }
+};
