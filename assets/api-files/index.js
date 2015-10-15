@@ -138,18 +138,24 @@ $(function() {
     e.preventDefault(); // will always use prefentDefault with a submit function - to keep the browser from automatically sending the submit to the server - we want to do something else with it
   });
 
+  var loginCallback = function(error, loginData){
+    console.log('loginData is ', loginData);
+    if (error) {
+      callback(error);
+      return;
+    }
+    //
+    $('#logged-in').html("User " + loginData.user.email + " is Logged IN");
+
+    callback(null, loginData);
+    $('.token').val(loginData.user.token); // stores token data on the page
+  };
+
   $('#login').on('submit', function(e) {
     var credentials = wrap('credentials', form2object(this));
-    var cb = function cb(error, data) {
-      if (error) {
-        callback(error);
-        return;
-      }
-      callback(null, data);
-      $('.token').val(data.user.token); // stores token data on the page
-    };
+
     e.preventDefault();
-    tttapi.login(credentials, cb);
+    tttapi.login(credentials, loginCallback);
   });
 
   $('#list-games').on('submit', function(e) {
@@ -161,6 +167,7 @@ $(function() {
   $('#create-game').on('submit', function(e) {
     var token = $(this).children('[name="token"]').val();
     e.preventDefault();
+    reset();
     tttapi.createGame(token, callback);
   });
 
