@@ -5,31 +5,98 @@
       <meta name="description" content="Tic-Tac-Toe Game">
       <meta name="keywords" content="Game,Tic-Tac-Toe,multiplayer">
       <meta name="author" content="Christine Moses">
-
+      <title>Tic Tac Toe Challenge</title>
       <link rel="stylesheet" href="assets/styles/main.css">
     </head>
 
     <body>
-        <h1>Tic Tac Toe Challenge</h1>
-        <h2>Let's Play!</h2>
-          <div class="board">
-            <div class="col1">
-              <div class="block boxA" data-col="0" data-row="0"></div>
-              <div class="block boxB" data-col="0" data-row="1"></div>
-              <div class="block boxC" data-col="0" data-row="2"></div>
-            </div>
-            <div class="col2">
-              <div class="block boxD" data-col="1" data-row="0"></div>
-              <div class="block boxE" data-col="1" data-row="1"></div>
-              <div class="block boxF" data-col="1" data-row="2"></div>
-            </div>
-            <div class="col3">
-              <div class="block boxG" data-col="2" data-row="0"></div>
-              <div class="block boxH" data-col="2" data-row="1"></div>
-              <div class="block boxI" data-col="2" data-row="2"></div>
-            </div>
-          </div>
+
+
+      <h1>Tic Tac Toe Challenge</h1>
+      <h2 class="alert">Let's Play!</h2>
+      <div class="inputs">
+        <form id="register">
+          <input name="email" type="text" placeholder="email">
+          <input name="password" type="password" placeholder="password">
+          <input name="password_confirmation" type="password" placeholder="password confirmation">
+          <input name="register" type="submit" value="Register">
+        </form>
+        <form id="login">
+          <input name="email" type="text" placeholder="email">
+          <input name="password" type="password" placeholder="password">
+          <input name="login" type="submit" value="Login">
+        </form>
+        <form id="list-games">
+          <input name="list-games" type="submit" value="List Games">
+          <input class="token" name="token" type="hidden">
+        </form>
+        <form id="create-game">
+          <input name="create-game" type="submit" value="Create Game">
+          <input class="token" name="token" type="hidden">
+        </form>
+        <form id="show-game">
+          <label for="show-id">Id:</label>
+          <input id="show-id" type="text" size="4">
+          <input name="show-game" type="submit" value="Show Game">
+          <input class="token" name="token" type="hidden">
+       </form>
+        <form id="join-game">
+          <label for="join-id">Id:</label>
+          <input id="join-id" type="text" size="4">
+          <input name="join-game" type="submit" value="Join Game">
+          <input class="token" name="token" type="hidden">
+       </form>
+       <form id="mark-cell">
+          <label for="mark-id">Id:</label>
+          <input id="mark-id" type="text" size="4">
+          <label for="mark-index">Index:</label>
+          <input name="index" id="mark-index" type="text" size="4">
+          <label for="mark-value">Value:</label>
+          <input name="value" id="mark-value" type="text" size="4">
+          <input name="mark-cell" type="submit" value="Mark Cell">
+          <input class="token" name="token" type="hidden">
+        </form>
+        <form id="watch-game">
+          <label for="watch-id">Id:</label>
+          <input id="watch-id" type="text" size="4">
+          <label for="watch-index">Index:</label>
+          <input name="index" id="watch-index" type="text" size="4">
+          <label for="watch-value">Value:</label>
+          <input name="value" id="watch-value" type="text" size="4">
+          <input name="watch-game" type="submit" value="Watch Game">
+          <input class="token" name="token" type="hidden">
+        </form>
+        <br>
+        <label for="result">Result</label>
+        <textarea id="result"></textarea>
+      </div>
+      <div class="board">
+        <div class="columns">
+          <div class="block" data-col="0" data-row="0"></div>
+          <div class="block" data-col="0" data-row="1"></div>
+          <div class="block" data-col="0" data-row="2"></div>
+        </div>
+        <div class="columns">
+          <div class="block" data-col="1" data-row="0"></div>
+          <div class="block" data-col="1" data-row="1"></div>
+          <div class="block" data-col="1" data-row="2"></div>
+        </div>
+        <div class="columns">
+          <div class="block" data-col="2" data-row="0"></div>
+          <div class="block" data-col="2" data-row="1"></div>
+          <div class="block" data-col="2" data-row="2"></div>
+        </div>
+      </div>
+      <div class="rules">
+        <p>Tic Tac Toe Rules:</p>
+        <br>
+        <p>C'mon, you don't need me to tell you...</p>
+        <br>
+        <p>Learn more about me</p>
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script type="text/javascript" src="http://ttt.wdibos.com/js/resource-watcher-0.1.0.js" defer charset="utf-8"></script>
+      <script type="text/javascript" src="assets/api-files/index.js"></script>
+      <script type="text/javascript" src="assets/scripts/main.js"></script>
     </body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/scripts/main.js"></script>
   </html>

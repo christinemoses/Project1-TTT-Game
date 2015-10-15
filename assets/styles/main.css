@@ -1,45 +1,59 @@
 * {
   text-align: center;
   font-family: arial;
-  background-color: white;
 }
 
 body {
+  background-image: url(./images/background_grass.jpg);
+  background-size: 200% 200%;
+  background-position: center;
 }
 
 h1 {
-  background-color: clear;
+  margin-top: 10px;
+  margin-bottom: 5px;
   font-size: 50px;
+  color: #C8F4F7;
+  text-shadow: 2px 2px #707070;
 }
 
 h2 {
-  background-color: clear;
+  margin-top: 5px;
+  margin-bottom: 5px;
   font-size: 30px;
+  color: #C8F4F7;
+  text-shadow: 2px 2px #707070;
+}
+
+.inputs {
+  position: absolute;
+  left: 15px;
+  width: 200px;
+  height: 400px;
+  background-color: #C8F4F7;
+  border: 5px solid #707070;
+  padding: 10px 10px 10px 10px;
 }
 
 .board {
-  background-color: clear;
-  float: left;
-
-}
-
-.col1 {
-  float: left;
-  background-color: clear;
-  text-align: center;
   margin: 0 auto;
+  width: 330px;
 }
 
-.col2 {
-  float: left;
-  background-color: clear;
-  text-align: center;
-  margin: 0 auto;
+.rules {
+  position: absolute;
+  right: 15px;
+  width: 200px;
+  height: 400px;
+  font-size: 20px;
+  background-color: #C8F4F7;
+  border: 5px solid #707070;
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 5%;
 }
 
-.col3 {
+.columns {
   float: left;
-  background color: green;
   text-align: center;
   margin: 0 auto;
 }
@@ -49,10 +63,18 @@ h2 {
   height: 100px;
   width: 100px;
   margin: 5px;
-  background-color: yellow;
+  background-color: #C8F4F7;
   text-align: center;
   font-size: 80px;
   vertical-align: center;
-  box-shadow: 5px 5px 5px gray;
+  box-shadow: 5px 5px 5px #707070;
 }
 
+.block:hover{
+   background-color: #2EB82E;
+}
+
+#result {
+  width: 200px;
+  height: 100px;
+}

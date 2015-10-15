@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <title>A tic-tac-toe client</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.js" defer charset="utf-8"></script>
+  <script type="text/javascript" src="http://ttt.wdibos.com/js/resource-watcher-0.1.0.js" defer charset="utf-8"></script>
+  <script type="text/javascript" src="index.js" defer charset="utf-8"></script>
+</head>
+<body>
+  <form id="register">
+    <input name="email" type="text" placeholder="email">
+    <input name="password" type="password" placeholder="password">
+    <input name="password_confirmation" type="password" placeholder="password confirmation">
+    <input name="register" type="submit" value="Register">
+  </form>
+  <form id="login">
+    <input name="email" type="text" placeholder="email">
+    <input name="password" type="password" placeholder="password">
+    <input name="login" type="submit" value="Login">
+  </form>
+  <form id="list-games">
+    <input name="list-games" type="submit" value="List Games">
+    <input class="token" name="token" type="hidden">
+  </form>
+  <form id="create-game">
+    <input name="create-game" type="submit" value="Create Game">
+    <input class="token" name="token" type="hidden">
+  </form>
+  <form id="show-game">
+    <label for="show-id">Id:</label>
+    <input id="show-id" type="text" size="4">
+    <input name="show-game" type="submit" value="Show Game">
+    <input class="token" name="token" type="hidden">
+ </form>
+  <form id="join-game">
+    <label for="join-id">Id:</label>
+    <input id="join-id" type="text" size="4">
+    <input name="join-game" type="submit" value="Join Game">
+    <input class="token" name="token" type="hidden">
+ </form>
+ <form id="mark-cell">
+    <label for="mark-id">Id:</label>
+    <input id="mark-id" type="text" size="4">
+    <label for="mark-index">Index:</label>
+    <input name="index" id="mark-index" type="text" size="4">
+    <label for="mark-value">Value:</label>
+    <input name="value" id="mark-value" type="text" size="4">
+    <input name="mark-cell" type="submit" value="Mark Cell">
+    <input class="token" name="token" type="hidden">
+  </form>
+  <form id="watch-game">
+    <label for="watch-id">Id:</label>
+    <input id="watch-id" type="text" size="4">
+    <label for="watch-index">Index:</label>
+    <input name="index" id="watch-index" type="text" size="4">
+    <label for="watch-value">Value:</label>
+    <input name="value" id="watch-value" type="text" size="4">
+    <input name="watch-game" type="submit" value="Watch Game">
+    <input class="token" name="token" type="hidden">
+  </form>
+  <br>
+  <label for="result">Result</label>
+  <textarea id="result"></textarea>
+</body>
+</html>

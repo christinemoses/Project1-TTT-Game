@@ -8,22 +8,33 @@ var board = [
 
 var currentPlayer = "x";
 
-$('.block').one('click', function(event) { // one vs on??
+$('.block').on('click', function() { // one vs on??
   var $this = $(this);
-// change the text inside the div
-  $this.text(currentPlayer);
-  // switch player
   var col = $this.data('col');
   var row = $this.data('row');
 
-  turn(col, row);
+  turn($this, col, row);
   var winner = getWinner();
   if (winner) {
-    alert(winner); // change this to a div to hold winner on the page
+    $('.alert').text(winner);
   }
   console.log(board);
 
 });
+
+// Reset the arrray and remove 'X' and  'O' from each block
+var reset = function() {
+
+  board = [
+    ['', '', ''],
+    ['', '', ''],
+    ['', '', '']
+  ];
+
+  $('.block').html('')
+};
+
+
 
 var switchPlayer = function() {
   if (currentPlayer === "x") {
@@ -35,8 +46,10 @@ var switchPlayer = function() {
 
 // variable to store an event target
 
-var turn = function(col, row){
+var turn = function($this, col, row){
+
   if (board[col][row] === '') {
+    $this.text(currentPlayer);
     board[col][row] = currentPlayer;
     switchPlayer();
   }
@@ -45,11 +58,6 @@ var turn = function(col, row){
   }
   return board;
 };
-
-// turn(1,2);
-// turn(1,1);
-// turn(1,2);
-// turn(1,1);
 
 var winsRow = function winsRow(player) {
   var sameFirstRow = board[0][0] === player && board[1][0] === player && board[2][0] === player;
@@ -90,22 +98,36 @@ var winsDiagonal = function winsDiagonal(player) {
   }
 };
 
+var isBoardFull = function isBoardFull() {
+  for (var i = 0, imax = board.length; i < imax; i++) {
+    for (var j = 0, jmax = board[i].length; j < jmax; j++) {
+      if (board[i][j] === '') {
+        return false;
+      }
+    }
+  }
+  return true;
+};
+
+var isTie = function isTie() {
+  // if all turns are completed and all blocks are full, and there is no winner, it must be a tie
+  return isBoardFull()
+};
+
 var getWinner = function getWinner() {
-    if (isWinner('x')) {
-      return 'Player X Wins!';
-    }
-    if (isWinner('o')) {
-    return 'Player O Wins!';
-    }
-    if (isTie()) {
-      return 'Tie Game!'
-    }
-    // if (false) {
-    //   var checkboard = function(board) {
-    //     for(var i = 0; i < board.length; i++) {
-    //       if(board[i] != '');
-    //     }
-    //   }
-    // return 'Tie Game!';
-    // }
+  var msg = '';
+  if (isWinner('x')) {
+    reset();
+    msg ='Player X Wins!';
+  }else if(isWinner('o')) {
+    reset();
+    msg = 'Player O Wins!';
+  }else if(isTie()) {
+    reset();
+    msg = 'Tie Game!'
+  }else {
+      // no Winner
+  }
+
+  return msg;
 };
