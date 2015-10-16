@@ -9,11 +9,8 @@ var board = [
 var currentPlayer = "x";
 
 $('.block').on('click', function() { // one vs on??
-  var $this = $(this);
-  var col = $this.data('col');
-  var row = $this.data('row');
+  turn($(this));
 
-  turn($this, col, row);
   var winner = getWinner();
   if (winner) {
     $('.alert').text(winner);
@@ -31,7 +28,9 @@ var reset = function() {
     ['', '', '']
   ];
 
-  $('.block').html('')
+  currentPlayer = "x";
+  $('.alert').text("Let's Play!")
+  $('.block').text('')
 };
 
 
@@ -46,7 +45,9 @@ var switchPlayer = function() {
 
 // variable to store an event target
 
-var turn = function($this, col, row){
+var turn = function($this){
+  var col = $this.data('col');
+  var row = $this.data('row');
 
   if (board[col][row] === '') {
     $this.text(currentPlayer);
@@ -116,14 +117,12 @@ var isTie = function isTie() {
 
 var getWinner = function getWinner() {
   var msg = '';
+
   if (isWinner('x')) {
-    reset();
     msg ='Player X Wins!';
   }else if(isWinner('o')) {
-    reset();
     msg = 'Player O Wins!';
   }else if(isTie()) {
-    reset();
     msg = 'Tie Game!'
   }else {
       // no Winner

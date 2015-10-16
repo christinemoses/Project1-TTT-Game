@@ -1,11 +1,11 @@
 * {
   text-align: center;
-  font-family: arial;
+  font-family: verdana;
 }
 
 body {
-  background-image: url(./images/background_grass.jpg);
-  background-size: 200% 200%;
+  background-image: url(./images/background_wood3.jpg);
+  background-size: 250% 250%;
   background-position: center;
 }
 
@@ -14,7 +14,7 @@ h1 {
   margin-bottom: 5px;
   font-size: 50px;
   color: #C8F4F7;
-  text-shadow: 2px 2px #707070;
+  text-shadow: 2px 2px black;
 }
 
 h2 {
@@ -22,16 +22,16 @@ h2 {
   margin-bottom: 5px;
   font-size: 30px;
   color: #C8F4F7;
-  text-shadow: 2px 2px #707070;
+  text-shadow: 2px 2px black;
 }
 
 .inputs {
   position: absolute;
   left: 15px;
-  width: 200px;
-  height: 400px;
+  width: 210px;
+  height: 450px;
   background-color: #C8F4F7;
-  border: 5px solid #707070;
+  border: 5px solid black;
   padding: 10px 10px 10px 10px;
 }
 
@@ -44,10 +44,10 @@ h2 {
   position: absolute;
   right: 15px;
   width: 200px;
-  height: 400px;
+  height: 450px;
   font-size: 20px;
   background-color: #C8F4F7;
-  border: 5px solid #707070;
+  border: 5px solid black;
   padding: 10px 10px 10px 10px;
   margin-bottom: 5%;
 }
@@ -67,11 +67,30 @@ h2 {
   text-align: center;
   font-size: 80px;
   vertical-align: center;
-  box-shadow: 5px 5px 5px #707070;
+  box-shadow: 5px 5px 5px black;
 }
 
 .block:hover{
    background-color: #2EB82E;
+}
+
+p {
+  font-size: 14px;
+  padding: 0px 10px 0px 10px;
+  text-align: left;
+}
+
+ol {
+  font-size: 14px;
+  padding: 0px 10px 10px 0px;
+  text-align: left;
+}
+
+li {
+  font-size: 14px;
+  padding: 5px 10px 5px 10px;
+  text-align: left;
+  margin-left: 20px
 }
 
 #result {
